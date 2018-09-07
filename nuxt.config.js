@@ -1,3 +1,9 @@
+const fs = require('fs-extra')
+const path = require('path')
+
+let fileName = fs.pathExistsSync('.env.' + process.env.NODE_ENV) ? '.env.' + process.env.NODE_ENV : '.env'
+
+require('dotenv').config({ path: path.resolve(process.cwd(), fileName) })
 
 module.exports = {
   /*
@@ -15,7 +21,11 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
     ]
   },
-  plugins: ['~/plugins/vuetify.js'],
+  plugins: [
+    '~/plugins/vuetify.js',
+    '~/plugins/resource.js',
+    '~/plugins/vuelidate.js'
+  ],
   css: [
     '~/assets/style/app.styl'
   ],
@@ -26,9 +36,15 @@ module.exports = {
   /*
   ** Build configuration
   */
+  env: {
+    apiUrl: process.env.API_URL,
+    developerUrl: process.env.DEVELOPER_URL
+  },
   build: {
     vendor: [
-      '~/plugins/vuetify.js'
+      '~/plugins/vuetify.js',
+      '~/plugins/resource.js',
+      '~/plugins/vuelidate.js'
     ],
     extractCSS: true,
     /*

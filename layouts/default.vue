@@ -87,8 +87,8 @@
         drawer: null,
         fixed: false,
         items: [
-          { icon: 'apps', title: 'Welcome', to: '/' },
-          { icon: 'bubble_chart', title: 'Inspire', to: '/inspire' }
+          { icon: 'home', title: this.$vuetify.t('$vuetify.layout.menu.item.main'), to: '/' },
+          { icon: 'file_download', title: this.$vuetify.t('$vuetify.layout.menu.item.download'), to: '/download' }
         ],
         miniVariant: false,
         right: true,
