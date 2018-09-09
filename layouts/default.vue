@@ -1,6 +1,7 @@
 <template>
   <v-app dark>
     <v-navigation-drawer
+      v-model="drawer"
       fixed
       app
     >
@@ -22,10 +23,11 @@
       </v-list>
     </v-navigation-drawer>
     <v-toolbar fixed app>
+      <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title v-text="currentPage ? currentPage.title : ''"></v-toolbar-title>
     </v-toolbar>
     <v-content>
-      <v-container>
+      <v-container grid-list-lg>
         <nuxt />
       </v-container>
     </v-content>
@@ -38,8 +40,8 @@
       return {
         drawer: null,
         pages: [
-          { icon: 'home', title: this.$vuetify.t('$vuetify.layout.menu.item.main'), to: '/' },
-          { icon: 'file_download', title: this.$vuetify.t('$vuetify.layout.menu.item.download'), to: '/download' }
+          { icon: 'home', title: this.$t('layout.menu.item.main'), to: '/' },
+          { icon: 'file_download', title: this.$t('layout.menu.item.download'), to: '/download' }
         ],
         title: 'Vuetify.js'
       }

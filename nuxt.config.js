@@ -24,7 +24,8 @@ module.exports = {
   plugins: [
     '~/plugins/vuetify.js',
     '~/plugins/resource.js',
-    '~/plugins/vuelidate.js'
+    '~/plugins/vuelidate.js',
+    '~/plugins/i18n.js'
   ],
   css: [
     '~/assets/style/app.styl'
@@ -44,7 +45,8 @@ module.exports = {
     vendor: [
       '~/plugins/vuetify.js',
       '~/plugins/resource.js',
-      '~/plugins/vuelidate.js'
+      '~/plugins/vuelidate.js',
+      '~/plugins/i18n.js'
     ],
     extractCSS: true,
     /*
