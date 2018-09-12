@@ -12,6 +12,14 @@
 
   export default {
     name: 'PageIndex',
-    components: {ToleranceCalculator}
+    components: {ToleranceCalculator},
+    head () {
+      return {
+        title: this.$t('pages.index.head.title'),
+        meta: [
+          { hid: 'description', name: 'description', content: this.$t('pages.index.head.meta.description') }
+        ]
+      }
+    }
   }
 </script>
