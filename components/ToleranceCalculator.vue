@@ -1,36 +1,55 @@
 <template>
-  <div>
-    <div>{{ $t('components.tolerance-calculator.title') }}</div>
-    <v-layout row wrap>
-      <v-flex d-flex md4 xs12>
-        <v-text-field
-          :error-messages="errorMessages.size"
-          :error="$v.form.size.$error"
-          :value="form.size"
-          :label="$t('components.tolerance-calculator.size')+', '+$t('unit.mm')"
-          @blur="$v.form.size.$touch()"
-          @change="initFieldQuality"
-        ></v-text-field>
-      </v-flex>
-      <v-flex d-flex md4 xs12>
+  <v-card>
+    <v-card-title>
+      <h2>{{ $t('components.tolerance-calculator.title') }}</h2>
+    </v-card-title>
+    <v-card-text>
+      <v-layout row wrap align-center>
+        <v-flex d-flex md4 xs12>
+          <v-text-field
+            :error-messages="errorMessages.size"
+            :error="$v.form.size.$error"
+            :value="form.size"
+            :label="$t('components.tolerance-calculator.size')+', '+$t('unit.mm')"
+            @blur="$v.form.size.$touch()"
+            @change="initFieldQuality"
+          ></v-text-field>
+        </v-flex>
+        <v-flex d-flex md4 xs6>
           <v-autocomplete
             :value="form.fieldQuality"
             :items="form.fieldQualities"
             :label="$t('components.tolerance-calculator.field')"
             item-text="label"
             item-value="value"
-            @change="calculateTolerance"/>
-      </v-flex>
-      <div class="col-md-4 col-xs-6 row gutter-sm">
-          <q-field class="col-12">
-              <q-input v-model="form.tolerance.max" inverted readonly :suffix="$t('unit.mm')"/>
-          </q-field>
-          <q-field class="col-12">
-              <q-input v-model="form.tolerance.min" inverted readonly :suffix="$t('unit.mm')"/>
-          </q-field>
-      </div>
-    </v-layout>
-  </div>
+            @change="calculateTolerance"
+          ></v-autocomplete>
+        </v-flex>
+        <v-flex d-flex md4 xs6>
+          <v-layout column>
+            <v-flex>
+              <v-text-field
+                v-model="form.tolerance.max"
+                outline
+                single-line
+                readonly
+                :suffix="$t('unit.mm')"
+              ></v-text-field>
+            </v-flex>
+            <v-flex>
+              <v-text-field
+                v-model="form.tolerance.min"
+                outline
+                single-line
+                readonly
+                :suffix="$t('unit.mm')"
+              ></v-text-field>
+            </v-flex>
+          </v-layout>
+        </v-flex>
+      </v-layout>
+    </v-card-text>
+  </v-card>
 </template>
 
 <script>

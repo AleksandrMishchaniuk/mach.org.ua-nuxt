@@ -1,7 +1,5 @@
-// This is just an example,
-// so you can safely delete all default props below
-
-import components from './components/'
+import components from './components'
+import pages from './pages'
 
 export default {
   layout: {
@@ -15,5 +13,6 @@ export default {
   unit: {
     mm: 'мм'
   },
-  components: components
+  components,
+  pages
 }
