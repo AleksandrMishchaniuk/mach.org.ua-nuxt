@@ -8,7 +8,14 @@
             <v-list-tile-title>ГОСТ 25347-82.pdf</v-list-tile-title>
           </v-list-tile-content>
           <v-list-tile-action>
-            <v-btn icon :href="links.gost" target="_blank" download="GOST-25347-82.pdf">
+            <v-btn
+              icon
+              large
+              color="green darken-3"
+              :href="links.gost"
+              target="_blank"
+              download="GOST-25347-82.pdf"
+            >
               <v-icon>file_download</v-icon>
             </v-btn>
           </v-list-tile-action>

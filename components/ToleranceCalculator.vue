@@ -30,19 +30,21 @@
             <v-flex>
               <v-text-field
                 v-model="form.tolerance.max"
-                outline
                 single-line
                 readonly
+                solo-inverted
                 :suffix="$t('unit.mm')"
+                :hide-details="true"
               ></v-text-field>
             </v-flex>
             <v-flex>
               <v-text-field
                 v-model="form.tolerance.min"
-                outline
                 single-line
                 readonly
+                solo-inverted
                 :suffix="$t('unit.mm')"
+                :hide-details="true"
               ></v-text-field>
             </v-flex>
           </v-layout>
