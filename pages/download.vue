@@ -40,6 +40,9 @@ export default {
       title: this.$t('pages.download.head.title'),
       meta: [
         { hid: 'description', name: 'description', content: this.$t('pages.download.head.meta.description') }
+      ],
+      link: [
+        { rel: 'canonical', href: process.env.baseUrl + '/download/' }
       ]
     }
   }

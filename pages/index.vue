@@ -18,6 +18,9 @@
         title: this.$t('pages.index.head.title'),
         meta: [
           { hid: 'description', name: 'description', content: this.$t('pages.index.head.meta.description') }
+        ],
+        link: [
+          { rel: 'canonical', href: process.env.baseUrl }
         ]
       }
     }

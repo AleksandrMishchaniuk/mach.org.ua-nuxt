@@ -38,6 +38,7 @@ module.exports = {
   ** Build configuration
   */
   env: {
+    baseUrl: process.env.SCHEMA + '://' + process.env.DOMAIN,
     apiUrl: process.env.API_URL,
     developerUrl: process.env.DEVELOPER_URL
   },
