@@ -2,25 +2,24 @@
   <v-layout>
     <v-flex>
       <h1>{{ $t('pages.download.h1') }}</h1>
-      <v-list>
-        <v-list-tile>
-          <v-list-tile-content>
-            <v-list-tile-title>ГОСТ 25347-82.pdf</v-list-tile-title>
-          </v-list-tile-content>
-          <v-list-tile-action>
-            <v-btn
-              icon
-              large
-              color="green darken-3"
-              :href="links.gost"
-              target="_blank"
-              download="GOST-25347-82.pdf"
-            >
-              <v-icon>file_download</v-icon>
-            </v-btn>
-          </v-list-tile-action>
-        </v-list-tile>
-      </v-list>
+      <v-card>
+        <v-card-title>
+          <h2 class="text-lg-center text-md-center">{{ $t('pages.download.title') }}</h2>
+        </v-card-title>
+        <v-card-actions>
+
+          <v-btn
+            v-for="(download, index) in downloads"
+            color="green darken-3"
+            :href="download.href"
+            target="_blank"
+            download
+          >
+            {{ download.format }}
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+
     </v-flex>
   </v-layout>
 </template>
@@ -30,9 +29,21 @@ export default {
   name: 'PageDownload',
   data () {
     return {
-      links: {
-        gost: process.env.developerUrl + '/downloads/GOST-25347-82.pdf'
-      }
+      downloads: [
+        {
+          title: 'ГОСТ 25347-82.pdf',
+          href: process.env.developerUrl + '/downloads/GOST-25347-82.pdf',
+          format: 'PDF'
+        }, {
+          title: 'Предельные отклонения по ГОСТ 25347-82 в формате json',
+          href: process.env.developerUrl + '/downloads/GOST-25347-82.json',
+          format: 'JSON'
+        }, {
+          title: 'Предельные отклонения по ГОСТ 25347-82 в формате xml',
+          href: process.env.developerUrl + '/downloads/GOST-25347-82.xml',
+          format: 'XML'
+        }
+      ]
     }
   },
   head () {
