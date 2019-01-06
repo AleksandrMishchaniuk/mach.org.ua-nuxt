@@ -42,7 +42,7 @@ export default {
         { hid: 'description', name: 'description', content: this.$t('pages.download.head.meta.description') }
       ],
       link: [
-        { rel: 'canonical', href: process.env.baseUrl + '/download/' }
+        { rel: 'canonical', href: process.env.baseUrl + '/download' }
       ]
     }
   }
