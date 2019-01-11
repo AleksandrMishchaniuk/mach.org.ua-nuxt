@@ -9,7 +9,8 @@
         <v-card-actions>
 
           <v-btn
-            v-for="(download, index) in downloads"
+            v-for="download in downloads"
+            :key="download.format"
             color="green darken-3"
             :href="download.href"
             target="_blank"
@@ -31,15 +32,12 @@ export default {
     return {
       downloads: [
         {
-          title: 'ГОСТ 25347-82.pdf',
           href: process.env.developerUrl + '/downloads/GOST-25347-82.pdf',
           format: 'PDF'
         }, {
-          title: 'Предельные отклонения по ГОСТ 25347-82 в формате json',
           href: process.env.developerUrl + '/downloads/GOST-25347-82.json',
           format: 'JSON'
         }, {
-          title: 'Предельные отклонения по ГОСТ 25347-82 в формате xml',
           href: process.env.developerUrl + '/downloads/GOST-25347-82.xml',
           format: 'XML'
         }
